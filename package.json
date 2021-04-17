@@ -1,0 +1,19 @@
+{
+  "name": "treeope",
+  "version": "1.0.2",
+  "description": "",
+  "keyword": [
+    "tree",
+    "排序",
+    "查找",
+    "插入",
+    "添加",
+    "删除"
+  ],
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Myway",
+  "license": "ISC"
+}

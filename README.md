@@ -317,9 +317,9 @@ let dom3 = treeDelete(list, ['子', 1, 4, 5, 'abc', 'id']) // 可以是一个数
 ```
 dom1:
 [
-	{id: 1, children: ['子', {}]},
-	{id: 3, children: ['子', {}]},
-	{id: 2, children: ['子', {}]},
+	{id: 1, children: ['子', {}, 'hello'], abc: 43},
+	{id: 3, children: ['子', {}, 'hello'], abc: 434},
+	{id: 2, children: ['子', {}, 'hello'], abc: 34},
 ]
 dom2:
 [

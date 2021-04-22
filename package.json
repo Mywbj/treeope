@@ -1,6 +1,6 @@
 {
   "name": "treeope",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "keyword": [
     "tree",
@@ -8,7 +8,8 @@
     "查找",
     "插入",
     "添加",
-    "删除"
+    "删除",
+	"树形工具"
   ],
   "main": "./lib/index.js",
   "scripts": {

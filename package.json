@@ -1,7 +1,7 @@
 {
   "name": "treeope",
-  "version": "1.0.4",
-  "description": "",
+  "version": "1.0.5",
+  "description": "JavaScript对于树形结构的排序以及操作查询的工具库",
   "keyword": [
     "tree",
     "排序",

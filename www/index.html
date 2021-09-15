@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="module">
+  // vscode右键Open with Live Server打开服务才可以访问，否则报跨域
+  import {treeQuery, treeSort} from '../lib/index.js'
+  const data = [
+    {
+      id: 1,
+      name: '系统设置',
+      type: 'group',
+      children: [{
+        id: 15,
+        name: '系统设置-1',
+        type: 'router',
+        children: [{
+            id: 25,
+            name: '按钮1',
+            type: 'button'
+          },
+          {
+            id: 32,
+            name: '按钮2',
+            type: 'button'
+          },
+          {
+            id: 45,
+            name: '按钮3',
+            type: 'button'
+          }
+
+        ]
+      }]
+    },
+    {
+      id: 2,
+      name: '系统设置',
+      type: 'router',
+      abc: {
+        id: 666,
+        name: 'myway'
+      },
+      children: [{
+          id: 201,
+          name: '按钮1-1',
+          type: 'button'
+        },
+        {
+          id: 202,
+          name: '按钮2-2',
+          type: 'button'
+        },
+        {
+          id: 203,
+          name: '按钮3-3',
+          type: 'button'
+        }
+      ]
+    }
+  ]
+
+  console.log(treeQuery(data, 203));
+</script>
+</html>

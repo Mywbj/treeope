@@ -25,7 +25,7 @@ yarn add treeope
 
 使用递归将数据结构查找一遍，直到查出你的key，再根据key去排序数据结构
 
-参数1：是一个数组，参数2：排序的key值，参数3：true为从大到小，false为从小到大，默认值false（此参数可选），参数4：是否开启异步，true为异步返回一个promise，默认值false，（此参数可选），
+参数1：是一个数组，参数2：排序的key值，参数3：是一个对象 可选属性（async：可选，是否开启异步，返回一个promise，true为异步，默认值false），（inMax：可选，true为从大到小，false为从小到大，默认值false）
 
 ```
 import { treeSort } from 'treeope'
@@ -236,17 +236,23 @@ const newData = treeSort(list, 'son_id') // 输入日志如下
 
 #### 利用递归根据id值查询，查出整条祖先链 或者查出自己所在的地方
 
-参数1：是一个数组，参数2：id值，参数3：true为查出整条祖先链 false为查出自己所在的地方，默认值 true（此参数可选）
+参数1：是一个数组，参数2：id值，参数3：'ancestors'为查出整条祖先链 'parent'为查出父亲，'self'为查自己，默认值为'self'（此参数可选）
 
 ```
 import { treeQuery } from 'treeope'
 let list = [
-	{id: 1, children: ['子', {sonId: 10}]},
-	{id: 3, children: ['子', {sonId: 30}]},
-	{id: 2, children: ['子', {sonId: 20}]},
+	{id: 1, children: ['子', {sonId: 10, name: 'kobe'}]},
+	{id: 3, children: ['子', {sonId: 30, name: 'myway'}]},
+	{id: 2, children: ['子', {sonId: 20, name: 'james'}]},
 ]
-treeQuery(list, 30, true) //output log： {id:3,children: ['子', {sonId: 30}]}
-treeQuery(list, 30, false) //output log： {sonId: 30}
+// 查自己
+treeQuery(list, 30) //output log：{sonId: 30, name: 'myway'}
+// 查父亲
+treeQuery(list, 30, 'parent') //output log：['子', {sonId: 30, name: 'myway'}]
+// 查祖先
+treeQuery(list, 30, 'ancestors') //output log：{id:3,children: ['子', {sonId: 30}]}
+
+// 注意第二个参数的类型必须和你想找的属性值类型是一致的
 ```
 
 
@@ -309,7 +315,7 @@ let list = [
 ]
 let dom1 = treeDelete(list, 'sonArr') // 如果是删除属性的话就必须传属性名
 let dom2 = treeDelete(list, 'hello') // 如果是删除数组里面的值的话，就直接传值
-let dom3 = treeDelete(list, ['子', 1, 4, 5, 'abc', 'id']) // 可以是一个数组，可以是值可以是属性，注意的是值得类型必须要一致
+let dom3 = treeDelete(list, ['子', 1, 4, 5, 'abc', 'id']) // 可以是一个数组，可以是值可以是属性，注意（值得类型必须要一致）
 ```
 
 #### output log：
